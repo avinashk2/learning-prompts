@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Python — Learning Prompts (Beginner, ~20h)</title>
+<style>
+  :root {
+    --bg: #f7f8fa; --card: #ffffff; --text: #1f2430; --muted: #5b6472;
+    --accent: #2563eb; --border: #e3e7ee; --code-bg: #0f172a; --code-text: #e2e8f0;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg); color: var(--text); margin: 0; padding: 2rem 1rem 4rem;
+    line-height: 1.55;
+  }
+  .container { max-width: 880px; margin: 0 auto; }
+  h1 { font-size: 1.8rem; margin: 0 0 .5rem; }
+  .note {
+    background: #fff7ed; border: 1px solid #fdba74; border-radius: 8px;
+    padding: .75rem 1rem; margin: 1rem 0; font-size: .95rem;
+  }
+  .howto {
+    background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px;
+    padding: .75rem 1rem; margin: 1rem 0 2rem; font-size: .95rem;
+  }
+  .prompt-card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+    padding: 1.1rem 1.25rem; margin-bottom: 1.4rem;
+  }
+  .prompt-card h2 { font-size: 1.1rem; margin: 0 0 .25rem; display: flex; align-items: center; gap: .5rem; }
+  .prompt-card h2 label { cursor: pointer; display: flex; align-items: center; gap: .5rem; }
+  .builds { color: var(--muted); font-size: .85rem; font-style: italic; margin: 0 0 .75rem; }
+  .codewrap { position: relative; }
+  pre {
+    background: var(--code-bg); color: var(--code-text); border-radius: 8px;
+    padding: 1rem; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;
+    font-family: "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: .82rem; margin: 0;
+  }
+  .copy-btn {
+    position: absolute; top: .5rem; right: .5rem;
+    background: #334155; color: #e2e8f0; border: none; border-radius: 6px;
+    padding: .3rem .7rem; font-size: .75rem; cursor: pointer;
+  }
+  .copy-btn:hover { background: var(--accent); }
+  .done-card { opacity: .55; }
+  input[type="checkbox"] { width: 1.05rem; height: 1.05rem; accent-color: var(--accent); }
+  .progress { position: sticky; top: 0; background: var(--bg); padding: .5rem 0; font-size: .9rem; color: var(--muted); z-index: 5; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Python programming language — Learning Prompts (Beginner, ~20h)</h1>
+  <div class="note"><strong>Scope note:</strong> 20 hours is enough to take a beginner to entry-level interview readiness for <em>Python-language</em> questions and the most common easy coding patterns — but not full DSA (trees, graphs, dynamic programming). If your target interviews are LeetCode-heavy, budget extra practice time after this curriculum.</div>
+  <div class="howto"><strong>How to use:</strong> Open a fresh chat for each prompt below. Click <em>Copy</em> and paste the whole prompt. Work through the conversation until the LLM's end-of-session check. Tick the checkbox when done, then move to the next prompt in a new chat. Progress is saved in your browser.</div>
+  <div class="progress" id="progress"></div>
+
+  <!-- 1 -->
+  <div class="prompt-card" data-id="1">
+    <h2><label><input type="checkbox" class="done"> 1. What Python is and how it runs code · ~15 min</label></h2>
+    <p class="builds">Builds on: nothing — start here</p>
+    <div class="codewrap"><button class="copy-btn">Copy</button><pre>You are a patient Python instructor teaching a complete beginner who has never programmed before but is comfortable using a computer.
+
+Today's single topic: what Python actually is and what happens when a Python program runs.
+1. Explain in plain language what a programming language is, what makes Python popular, and where it's used in real jobs.
+2. Give me a mental model of the interpreter: I write text in a .py file, the interpreter reads it top to bottom and executes each line. Show a 3-line example program and walk through it line by line.
+3. Briefly contrast "Python the language", "a .py file", "the interpreter", and "the REPL", since beginners confuse these.
+4. List 2–3 misconceptions beginners have about how code runs, and correct them.
+5. End by asking me one question that checks whether I can predict the order in which three simple lines execute. Wait for my answer before confirming.</pre></div>
+  </div>
+
+  <!-- 2 -->
+  <div class="prompt-card" data-id="2">
+    <h2><label><input type="checkbox" class="done"> 2. Variables: names point to objects · ~18 min</label></h2>
+    <p class="builds">Builds on: #1</p>
+    <div class="codewrap"><button class="copy-btn">Copy</button><pre>You are a Python instructor teaching a beginner who understands that Python runs a file top to bottom, but has not yet written any code.
+
+Today's single topic: variables and assignment — the mental model that a variable is a name attached to an object.
+1. Explain assignment (x = 5) in plain language: Python creates an object and attaches a name to it. Use the "label/sticky note" model rather than the "box" metaphor, and say why that distinction will matter later.
+2. Show 3 short examples: assigning, reassigning, and two names attached to one object.
+3. Explain naming rules and conventions (snake_case, no leading digits, case sensitivity).
+4. Show 2–3 common beginner mistakes (using a name before assigning it, = vs ==, invalid names) with the error each produces.
+5. Give me one exercise: show 4 lines of assignments and ask me to predict the final values. Check my answer.
+6. End with one question verifying I can explain what x = y does when y already holds a value. Wait for my answer before confirming.</pre></div>
+  </div>
+
+  <!-- 3 -->
+  <div class="prompt-card" data-id="3">
+    <h2><label><input type="checkbox" class="done"> 3. Core data types and dynamic typing · ~20 min</label></h2>
+    <p class="builds">Builds on: #2</p>
+    <div class="codewrap"><button class="copy-btn">Copy</button><pre>You are a Python instructor teaching a beginner who can assign variables but doesn't yet know about data types.
+
+Today's single topic: Python's basic data types — int, float, str, bool, and None — and what "dynamic typing" means.
+1. Explain why types exist: different kinds of values support different operations. Introduce type() for inspecting them.
+2. Show one concrete example of each type, and one operation that works for one type but fails for another (e.g. "3" + 3).
+3. Explain dynamic typing in one paragraph: names can be reattached to objects of different types — convenient, but it can hide bugs.
+4. Cover conversion with int(), float(), str(), and 2 common mistakes (int("3.5"), concatenating numbers onto strings).
+5. Exercise: give me 5 values to classify by type, then 3 mixed-type operations to predict (result or error). Check my answers.
+6. End with one check question about why "5" + "5" differs from 5 + 5. Wait for my answer before confirming.</pre></div>
+  </div>
+
+  <!-- 4 -->
+  <div class="prompt-card" data-id="4">
+    <h2><label><input type="checkbox" class="done"> 4. Numbers and arithmetic · ~18 min</label></h2>
+    <p class="builds">Builds on: #3</p>
+    <div class="codewrap"><button class="copy-btn">Copy</button><pre>You are a Python instructor teaching a beginner who knows variables and the basic types (int, float, str, bool).
+
+Today's single topic: working with numbers — the arithmetic operators and their quirks.
+1. Explain +, -, *, /, //, %, and ** with one realistic example each.
+2. Emphasize the three that surprise beginners: / always returns a float, // floors the result, % gives the remainder (show the classic even/odd check).
+3. Show operator precedence with one example where parentheses change the answer.
+4. List 2–3 common mistakes (integer division surprises, float imprecision like 0.1 + 0.2, using ^ instead of **).
+5. Exercise: give me 5 expressions to evaluate by hand, including // and %. Check my answers and explain any I miss.
+6. End by asking one question testing whether I can pick the right operator to check divisibility. Wait for my answer before confirming.</pre></div>
+  </div>
+
+  <!-- 5 -->
+  <div class="prompt-card" data-id="5">
+    <h2><label><input type="checkbox" class="done"> 5. Strings: indexing and slicing · ~22 min</label></h2>
+    <p class="builds">Builds on: #3</p>
+    <div class="codewrap"><button class="copy-btn">Copy</button><pre>You are a Python instructor teaching a beginner who knows variables, basic types, and arithmetic, but has only used strings as plain text.
+
+Today's single topic: strings as sequences — indexing and slicing.
+1. Explain the mental model: a string is an ordered, immutable sequence of characters, positions starting at 0.
+2. Teach indexing (s[0], s[-1]) and slicing (s[1:4], s[:3], s[::2], s[::-1]) by walking each through one example word.
+3. Explain immutability: why s[0] = "x" fails and what to do instead (build a new string).
+4. List the 3 most common mistakes (off-by-one, thinking the slice end is included, index out of range).
+5. Exercise: give me one string and 5 index/slice expressions to predict. Check my answers.
+6. End with one question checking I can write a slice that extracts a specific substring. Wait for my answer before confirming.</pre></div>
+  </div>
+
+  <!-- 6 -->
+  <div class="prompt-card" data-id="6">
+    <h2><label><input type="checkbox" class="done"> 6. print, input, and your first tiny programs · ~18 min</label></h2>
+    <p class="builds">Builds on: #4, #5</p>
+    <div class="codewrap"><button class="copy-btn">Copy</button><pre>You are a Python instructor teaching a beginner who knows variables, numbers, and string basics but has never combined them into a small program.
+
+Today's single topic: basic input and output — print() and input() — and structuring a tiny top-to-bottom program.
+1. Explain print() (multiple arguments; sep and end briefly) and input() (always returns a string; convert with int()).
+2. Show one complete 5–8 line program: ask for a name and birth year, compute an approximate age, print a friendly message. Walk through it line by line.
+3. List 2–3 common mistakes (forgetting input() returns a string, confusing printing with producing a value, concatenating numbers to strings).
+4. Exercise: ask me to write, in this chat, a 4–6 line program that asks for two numbers and prints their sum and average. Review my code and fix mistakes with explanations.
+5. End with one question checking I know what type input() returns. Wait for my answer before confirming.</pre></div>
+  </div>
+
+  <!-- 7 -->
+  <div class="prompt-card" data-id="7">
+    <h2><label><input type="checkbox" class="done"> 7. Booleans, comparisons, and truthiness · ~18 min</label></h2>
+    <p class="builds">Builds on: #6</p>
+    <div class="codewrap"><button class="copy-btn">Copy</button><pre>You are a Python instructor teaching a beginner who knows variables, numbers, strings, and basic input/output.
+
+Today's single topic: booleans — comparisons, logical operators, and truthiness.
+1. Explain True/False and the comparison operators (==, !=, &lt;, &lt;=, &gt;, &gt;=) with quick examples.
+2. Teach and, or, not — including one compound real-world condition (e.g. an eligibility check).
+3. Explain truthiness: which values are falsy (0, "", [], None, False) and why "if name:" works.
+4. List 2–3 common mistakes (= vs ==, x &gt; 1 and x &lt; 10 vs the chained 1 &lt; x &lt; 10, comparing to True unnecessarily).
+5. Exercise: give me 6 expressions mixing comparisons, and/or/not, and truthiness to predict. Check my answers.
+6. End with one question checking I can predict the truthiness of a few values. Wait for my answer before confirming.</pre></div>
+  </div>
+
+  <!-- 8 -->
+  <div class="prompt-card" data-id="8">
+    <h2><label><input type="checkbox" class="done"> 8. Making decisions: if / elif / else · ~20 min</label></h2>
+    <p class="builds">Builds on: #7</p>
+    <div class="codewrap"><button class="copy-btn">Copy</button><pre>You are a Python instructor teaching a beginner who understands booleans, comparisons, and truthiness.
+
+Today's single topic: making decisions with if, elif, and else.
+1. Explain the shape of an if statement, why indentation defines the block, and how Python checks conditions top to bottom, running only the first true branch.
+2. Show 3 examples: a lone if, an if/else, and an if/elif/else grading example.
+3. Show one nested-if example and how flattening it with elif or boolean operators improves it.
+4. List the 3 most common mistakes (missing colon, wrong indentation, elif ordering that makes branches unreachable).
+5. Exercise: ask me to write, in this chat, an if/elif/else that classifies a temperature as cold/mild/hot. Review and correct my code.
+6. End with one question checking I can predict which branch runs for a tricky boundary value. Wait for my answer before confirming.</pre></div>
+  </div>
+
+  <!-- 9 -->
+  <div class="prompt-card" data-id="9">
+    <h2><label><input type="checkbox" class="done"> 9. for loops and range() · ~22 min</label></h2>
+    <p class="builds">Builds on: #8</p>
+    <div class="codewrap"><button class="copy-btn">Copy</button><pre>You are a Python instructor teaching a beginner who knows variables, strings, and conditionals, but has never written a loop.
+
+Today's single topic: for loops — repeating work over a sequence.
+1. Explain the mental model: "for each item in this sequence, run the block once with the item bound to the loop name." Contrast with copy-pasting code.
+2. Show 3 examples: looping over a string's characters, range(5), and range(start, stop, step). Emphasize that stop is excluded.
+3. Show the accumulator pattern: summing numbers into a total variable, traced iteration by iteration.
+4. List 2–3 common mistakes (off-by-one with range, shadowing the loop variable, indentation putting code outside the loop).
+5. Exercise: ask me to trace a short loop and state the final total, then write a loop that prints 10 down to 1. Check both.
+6. End with one question checking I can predict how many times a given range() loop runs. Wait for my answer before confirming.</pre></div>
+  </div>
+
+  <!-- 10 -->
+  <div class="prompt-card" data-id="10">
+    <h2><label><input type="checkbox" class="done"> 10. while loops, break, and continue · ~18 min</label></h2>
+    <p class="builds">Builds on: #9</p>
+    <div class="codewrap"><button class="copy-btn">Copy</button><pre>You are a Python instructor teaching a beginner who can write for loops with range() and understands conditionals.
+
+Today's single topic: while loops, plus break and continue.
+1. Explain when while fits better than for: repeating until a condition changes, or an unknown number of iterations (e.g. re-asking for input until valid).
+2. Show a countdown example and a validation-loop example, walking through how the condition is re-checked each pass.
+3. Teach break and continue with one small example each, and explain how infinite loops happen (forgetting to update the condition variable).
+4. List 2–3 common mistakes (infinite loops, updating the counter in the wrong place, using while where for is simpler).
+5. Exercise: show me a while loop with a bug that makes it infinite; ask me to spot and fix it. Confirm or correct my fix.
+6. End with one question asking me to choose between for and while for two scenarios. Wait for my answer before confirming.</pre></div>
+  </div>
+
+  <!-- 11 -->
+  <div class="prompt-card" data-id="11">
+    <h2><label><input type="checkbox" class="done"> 11. Lists: Python's workhorse collection · ~25 min</label></h2>
+    <p class="builds">Builds on: #9, #10</p>
+    <div class="codewrap"><button class="copy-btn">Copy</button><pre>You are a Python instructor teaching a beginner who knows strings, for loops, while loops, and conditionals.
+
+Today's single topic: lists — Python's main ordered, changeable collection.
+1. Explain the mental model: an ordered sequence you can grow, shrink, and modify; indexing and slicing work like strings.
+2. Show creating lists, len(), indexing, and the core methods — append, insert, remove, pop — plus the "in" membership test, one short example each.
+3. Show looping over a list and building a new list from an old one with append.
+4. Emphasize mutability: unlike strings, lst[0] = "new" works.
+5. List the 3 most common mistakes (index out of range, remove vs pop confusion, modifying a list while looping over it).
+6. Exercise: give me a 5-step sequence of list operations to predict the final list, then ask me to write a loop that keeps only even numbers from a list. Check both.
+7. End with one question checking I can pick the right method for a described change. Wait for my answer before confirming.</pre></div>
+  </div>
+
+  <!-- 12 -->
+  <div class="prompt-card" data-id="12">
+    <h2><label><input type="checkbox" class="done"> 12. Tuples and unpacking · ~15 min</label></h2>
+    <p class="builds">Builds on: #11</p>
+    <div class="codewrap"><button class="copy-btn">Copy</button><pre>You are a Python instructor teaching a beginner who is comfortable with lists, loops, and indexing.
+
+Today's single topic: tuples and unpacking.
+1. Explain what a tuple is (ordered, immutable) and why it exists alongside lists: fixed records vs growing collections.
+2. Show creating tuples, indexing them, and the error you get assigning to an element.
+3. Teach unpacking: a, b = pair; swapping with a, b = b, a; and unpacking in a for loop over a list of pairs.
+4. List 2 common mistakes (forgetting the comma in a one-element tuple, unpacking count mismatch).
+5. Exercise: give me 4 short snippets using tuples and unpacking to predict, including one error case. Check my answers.
+6. End with one question asking me to decide list vs tuple for two scenarios. Wait for my answer before confirming.</pre></div>
+  </div>
+
+  <!-- 13 -->
+  <div class="prompt-card" data-id="13">
+    <h2><label><input type="checkbox" class="done"> 13. Dictionaries: the key-value mental model · ~25 min</label></h2>
+    <p class="builds">Builds on: #12</p>
+    <div class="codewrap"><button class="copy-btn">Copy</button><pre>You are a Python instructor teaching a beginner who is comfortable with lists, tuples, loops, and conditionals.
+
+Today's single topic: dictionaries — key-value storage.
+1. Explain the mental model: a dict maps keys to values for instant lookup by name, unlike lists which look up by position. Use a real scenario (usernames to emails).
+2. Show creating a dict, reading d[key], adding/updating, deleting, "in" for keys, and safe access with .get() including a default.
+3. Show looping: over keys, over values, and over .items() with tuple unpacking.
+4. List the 3 most common mistakes (KeyError from missing keys, expecting lookup by value, trying to use a list as a key).
+5. Exercise: give me a sequence of 5 dict operations to predict, then ask me to write a loop counting how many values exceed a threshold. Check both.
+6. End with one question asking me to choose dict vs list for two scenarios. Wait for my answer before confirming.</pre></div>
+  </div>
+
+  <!-- 14 -->
+  <div class="prompt-card" data-id="14">
+    <h2><label><input type="checkbox" class="done"> 14. Sets and membership testing · ~15 min</label></h2>
+    <p class="builds">Builds on: #13</p>
+    <div class="codewrap"><button class="copy-btn">Copy</button><pre>You are a Python instructor teaching a beginner who knows lists, tuples, and dictionaries.
+
+Today's single topic: sets — unordered collections of unique items.
+1. Explain the mental model: a bag of unique values with fast membership tests; no order, no duplicates.
+2. Show creating sets, add/remove, "in", deduplicating a list with set(), and union/intersection/difference with a small real example (students in two clubs).
+3. Warn that {} creates an empty dict, not a set — use set().
+4. List 2 common mistakes (expecting order, trying to index a set).
+5. Exercise: give me two small lists and ask me to work out the shared items and the deduplicated combined items using sets. Check my answers.
+6. End with one question asking me to pick list vs set for two scenarios. Wait for my answer before confirming.</pre></div>
+  </div>
+
+  <!-- 15 -->
+  <div class="prompt-card" data-id="15">
+    <h2><label><input type="checkbox" class="done"> 15. Functions: def, parameters, return · ~25 min</label></h2>
+    <p class="builds">Builds on: #11, #13</p>
+    <div class="codewrap"><button class="copy-btn">Copy</button><pre>You are a Python instructor teaching a beginner who can write loops, conditionals, and work with lists and dicts, but has never defined a function.
+
+Today's single topic: defining and calling functions with def, parameters, and return.
+1. Explain why functions exist: naming a reusable chunk of logic, avoiding repetition, making code testable — a skill every interview exercises.
+2. Show the anatomy — def name(params): body, return value — with one example (e.g. def area(width, height)), walking through the exact order of execution when it's called.
+3. Contrast return with print using two versions of the same function, and show that code after return never runs.
+4. Explain that a function without return returns None.
+5. List the 3 most common mistakes (printing instead of returning, forgetting to call the function, ignoring the returned value).
+6. Exercise: ask me to write, in this chat, a function that takes a list of numbers and returns the count of negatives. Review and correct it.
+7. End with one question checking I can predict what a short function call returns. Wait for my answer before confirming.</pre></div>
+  </div>
+
+  <!-- 16 -->
+  <div class="prompt-card" data-id="16">
+    <h2><label><input type="checkbox" class="done"> 16. Function arguments: defaults, *args, **kwargs · ~22 min</label></h2>
+    <p class="builds">Builds on: #15</p>
+    <div class="codewrap"><button class="copy-btn">Copy</button><pre>You are a Python instructor teaching a beginner who can define simple functions with positional parameters and return values.
+
+Today's single topic: the ways to pass arguments — positional, keyword, defaults, *args, and **kwargs.
+1. Explain positional vs keyword arguments with one function called both ways.
+2. Teach default parameter values with a realistic example (e.g. greet(name, greeting="Hello")).
+3. Introduce *args and **kwargs practically: extra positional args collected into a tuple, extra keyword args into a dict — one example of each and one realistic use.
+4. List 2–3 common mistakes (positional after keyword, missing required arguments, and flag that mutable defaults are a trap covered as a famous interview question).
+5. Exercise: give me 4 function-call snippets and ask which are valid and what they print. Check my answers.
+6. End with one question asking me to rewrite a call using keyword arguments correctly. Wait for my answer before confirming.</pre></div>
+  </div>
+
+  <!-- 17 -->
+  <div class="prompt-card" data-id="17">
+    <h2><label><input type="checkbox" class="done"> 17. Scope: local vs global · ~18 min</label></h2>
+    <p class="builds">Builds on: #15</p>
+    <div class="codewrap"><button class="copy-btn">Copy</button><pre>You are a Python instructor teaching a beginner who can define functions with parameters, defaults, and return values.
+
+Today's single topic: variable scope — where names are visible.
+1. Explain local vs global scope with the mental model that each function call gets its own temporary namespace, destroyed on return.
+2. Show 3 examples: reading a global inside a function (works), assigning inside a function creating a new local (shadowing), and the UnboundLocalError case.
+3. Briefly name the LEGB lookup order (Local, Enclosing, Global, Built-in), one sentence each — no deep dive on closures.
+4. Explain what the global keyword does and why relying on it is usually poor style; prefer parameters and return values.
+5. Exercise: give me 3 short programs mixing global and local names and ask me to predict each output or error. Check my answers.
+6. End with one question asking me to explain why a function didn't change a global integer. Wait for my answer before confirming.</pre></div>
+  </div>
+
+  <!-- 18 -->
+  <div class="prompt-card" data-id="18">
+    <h2><label><input type="checkbox" class="done"> 18. Mutability, references, and copying · ~22 min</label></h2>
+    <p class="builds">Builds on: #11, #15</p>
+    <div class="codewrap"><button class="copy-btn">Copy</button><pre>You are a Python instructor teaching a beginner who knows lists, dicts, and functions, and that variables are names attached to objects.
+
+Today's single topic: mutability and references — why two names can share one object, and how copying works.
+1. Revisit the "names point to objects" model, then show the classic surprise: b = a for a list, b.append(4), and a changed too. Explain why, step by step.
+2. Contrast with immutable types: why the same pattern with an int or string causes no surprise.
+3. Teach == (same value) vs is (same object) with one example.
+4. Show shallow copying (list(a), a[:], .copy()) and where a shallow copy still shares nested lists; name copy.deepcopy as the fix.
+5. Show how this bites in functions: modifying a list parameter affects the caller. Cover the mutable-default-argument trap — a famous interview question — and the None-default fix.
+6. Exercise: give me 3 snippets involving aliasing or copying to predict. Check my answers.
+7. End with one question asking me to predict whether a change propagates in a given snippet. Wait for my answer before confirming.</pre></div>
+  </div>
+
+  <!-- 19 -->
+  <div class="prompt-card" data-id="19">
+    <h2><label><input type="checkbox" class="done"> 19. String methods and f-strings · ~20 min</label></h2>
+    <p class="builds">Builds on: #5, #11</p>
+    <div class="codewrap"><button class="copy-btn">Copy</button><pre>You are a Python instructor teaching a beginner who knows string indexing/slicing, lists, loops, and functions.
+
+Today's single topic: everyday string methods and f-string formatting.
+1. Show the workhorse methods with one example each: lower/upper, strip, replace, startswith/endswith, find, count, split, and " ".join(list).
+2. Emphasize that strings are immutable, so every method returns a NEW string — show the classic mistake of calling s.upper() without assigning the result.
+3. Teach f-strings: embedding variables and expressions, and rounding with {value:.2f}.
+4. Show split and join as inverses with a realistic example (parsing a comma-separated line).
+5. List 2 more common mistakes (calling join on the list instead of the separator, comparing unstripped/uncased user input).
+6. Exercise: ask me to write, in this chat, a function that turns "  Hello World  " into "hello-world". Review and correct it.
+7. End with one question asking me to predict the output of a chained method call. Wait for my answer before confirming.</pre></div>
+  </div>
+
+  <!-- 20 -->
+  <div class="prompt-card" data-id="20">
+    <h2><label><input type="checkbox" class="done"> 20. Nested data structures · ~20 min</label></h2>
+    <p class="builds">Builds on: #13, #19</p>
+    <div class="codewrap"><button class="copy-btn">Copy</button><pre>You are a Python instructor teaching a beginner who is comfortable with lists, dicts, loops, and functions.
+
+Today's single topic: nested data structures — lists of dicts and dicts of lists, and how to navigate them.
+1. Explain why real data is nested (e.g. a list of user records), and show one realistic list-of-dicts and one dict-of-lists example.
+2. Teach reading nested values step by step: users[0]["name"] — evaluate the chain left to right.
+3. Show looping over a list of dicts to filter records and to compute an aggregate (e.g. average age).
+4. List 2–3 common mistakes (mixing up nesting levels, KeyError vs IndexError, assuming every record has every key — show .get() as protection).
+5. Exercise: give me a small list of dicts and ask me to write a loop collecting names that meet a condition. Review and correct my code.
+6. End with one question asking me to write the expression extracting one specific nested value. Wait for my answer before confirming.</pre></div>
+  </div>
+
+  <!-- 21 -->
+  <div class="prompt-card" data-id="21">
+    <h2><label><input type="checkbox" class="done"> 21. List comprehensions · ~22 min</label></h2>
+    <p class="builds">Builds on: #15, #11</p>
+    <div class="codewrap"><button class="copy-btn">Copy</button><pre>You are a Python instructor teaching a beginner who is comfortable writing for loops that build lists with append, and who knows functions.
+
+Today's single topic: list comprehensions.
+1. Show the same task twice — a for/append loop and its comprehension — and map each part of the loop onto the [expression for item in iterable] shape.
+2. Add filtering with a trailing if, and show a transform-plus-filter combo in one example.
+3. Briefly show the if/else-inside-the-expression form and how it differs from the trailing-if filter.
+4. Give guidance on when NOT to use one (complex logic, side effects, unreadable nesting) — interviewers value readable code.
+5. List 2 common mistakes (confusing the two if positions, wrapping an existing list in a pointless comprehension).
+6. Exercise: give me 3 loops to convert into comprehensions and 1 comprehension to convert back into a loop. Check my answers.
+7. End with one question asking me to predict the output of a comprehension with a filter. Wait for my answer before confirming.</pre></div>
+  </div>
+
+  <!-- 22 -->
+  <div class="prompt-card" data-id="22">
+    <h2><label><input type="checkbox" class="done"> 22. Dict and set comprehensions · ~15 min</label></h2>
+    <p class="builds">Builds on: #21</p>
+    <div class="codewrap"><button class="copy-btn">Copy</button><pre>You are a Python instructor teaching a beginner who is comfortable with list comprehensions, dicts, and sets.
+
+Today's single topic: dict comprehensions and set comprehensions.
+1. Show the dict comprehension shape {key_expr: value_expr for item in iterable} by converting one loop that builds a dict (e.g. word -&gt; its length).
+2. Show a set comprehension collecting unique transformed values.
+3. Show one practical use each: inverting a small dict, and deduplicating cleaned-up strings.
+4. List 2 common mistakes (accidentally writing a set comprehension when a dict was intended, key collisions silently overwriting values).
+5. Exercise: give me 2 loops to convert (one dict, one set) and one comprehension whose output I must predict. Check my answers.
+6. End with one question asking me to identify whether given comprehensions produce a dict, set, or list. Wait for my answer before confirming.</pre></div>
+  </div>
+
+  <!-- 23 -->
+  <div class="prompt-card" data-id="23">
+    <h2><label><input type="checkbox" class="done"> 23. Built-in helpers: enumerate, zip, sorted, any/all · ~22 min</label></h2>
+    <p class="builds">Builds on: #21</p>
+    <div class="codewrap"><button class="copy-btn">Copy</button><pre>You are a Python instructor teaching a beginner who is comfortable with lists, dicts, tuples, loops, comprehensions, and functions.
+
+Today's single topic: the built-in helpers interviewers expect fluency with — enumerate, zip, sorted with key=, min/max with key=, and any/all.
+1. Show enumerate replacing manual index counters, with tuple unpacking in the loop header.
+2. Show zip pairing two lists and looping over the pairs.
+3. Teach sorted(): returns a new list, reverse=True, and key= with a named function and key=len; contrast with .sort() in one sentence.
+4. Show min/max with key= (e.g. longest word) and any/all with a generator-style condition.
+5. List 2–3 common mistakes (expecting sorted to modify in place, zip truncating to the shorter list, passing key=f() instead of key=f).
+6. Exercise: give me 4 short tasks (e.g. "print each item with its position", "sort words by length descending") and review my one-line answers.
+7. End with one question asking me to pick the right helper for a described task. Wait for my answer before confirming.</pre></div>
+  </div>
+
+  <!-- 24 -->
+  <div class="prompt-card" data-id="24">
+    <h2><label><input type="checkbox" class="done"> 24. lambda, map, and filter · ~18 min</label></h2>
+    <p class="builds">Builds on: #23</p>
+    <div class="codewrap"><button class="copy-btn">Copy</button><pre>You are a Python instructor teaching a beginner who knows functions, comprehensions, and sorted() with key=.
+
+Today's single topic: lambda expressions, plus map and filter.
+1. Explain lambda as a small anonymous function: show lambda x: x * 2 next to the equivalent one-line def.
+2. Show the main real-world use: key= arguments, e.g. sorting a list of tuples or dicts by a chosen field.
+3. Show map and filter with lambdas, then the equivalent comprehensions, and explain why comprehensions are usually preferred in modern Python.
+4. List 2 common mistakes (trying multi-statement lambdas, forgetting map/filter return lazy objects that need list()).
+5. Exercise: three tasks — write a lambda for a sort key, convert one map/filter chain to a comprehension, predict one output. Check my answers.
+6. End with one question asking me to write a lambda that sorts (name, score) pairs by score. Wait for my answer before confirming.</pre></div>
+  </div>
+
+  <!-- 25 -->
+  <div class="prompt-card" data-id="25">
+    <h2><label><input type="checkbox" class="done"> 25. Errors and exceptions · ~22 min</label></h2>
+    <p class="builds">Builds on: #15</p>
+    <div class="codewrap"><button class="copy-btn">Copy</button><pre>You are a Python instructor teaching a beginner who can write functions using loops, conditionals, lists, and dicts.
+
+Today's single topic: errors and exception handling with try/except and raise.
+1. Explain the mental model: an exception abandons normal flow and travels up until caught; unhandled ones crash with a traceback. Show how to read a traceback from the bottom up.
+2. Name the exceptions beginners meet most (ValueError, TypeError, KeyError, IndexError, ZeroDivisionError) with a one-line cause each.
+3. Show try/except on a realistic case (converting user input with int()), catching the specific exception type.
+4. Show raise for rejecting bad arguments in your own function, and mention finally for cleanup in one sentence.
+5. List 2–3 common mistakes (bare except hiding bugs, catching Exception too broadly, using exceptions where an if is clearer).
+6. Exercise: give me a short function and 3 inputs; ask which exception (if any) each raises, then have me add a try/except handling one case. Check both.
+7. End with one question asking me to choose the right exception type to catch in a scenario. Wait for my answer before confirming.</pre></div>
+  </div>
+
+  <!-- 26 -->
+  <div class="prompt-card" data-id="26">
+    <h2><label><input type="checkbox" class="done"> 26. Files and the with statement · ~18 min</label></h2>
+    <p class="builds">Builds on: #19, #25</p>
+    <div class="codewrap"><button class="copy-btn">Copy</button><pre>You are a Python instructor teaching a beginner who knows functions, loops, string methods (split/strip), and exceptions.
+
+Today's single topic: reading and writing text files with open() and the with statement.
+1. Explain the mental model: open() gives a file object; files must be closed; with open(...) as f: closes automatically even if an error occurs — the idiom interviewers expect.
+2. Show reading: f.read() vs looping over lines, and stripping newlines.
+3. Show writing: mode "w" (overwrites) vs "a" (appends), and writing lines with \n.
+4. Walk through one realistic mini-task: read a file of numbers (one per line) and compute the total.
+5. List 2–3 common mistakes (forgetting "w" wipes the file, skipping with, forgetting lines keep their trailing \n).
+6. Exercise: ask me to write, in this chat, code that reads a file and counts non-empty lines. Review and correct it.
+7. End with one question asking me to pick the correct mode for a described task. Wait for my answer before confirming.</pre></div>
+  </div>
+
+  <!-- 27 -->
+  <div class="prompt-card" data-id="27">
+    <h2><label><input type="checkbox" class="done"> 27. Modules, imports, and the standard library · ~18 min</label></h2>
+    <p class="builds">Builds on: #15</p>
+    <div class="codewrap"><button class="copy-btn">Copy</button><pre>You are a Python instructor teaching a beginner who can write multi-function programs in one file.
+
+Today's single topic: modules and imports — using the standard library and organizing code.
+1. Explain what a module is (a .py file of reusable code) and the mental model of import: run the module once, get a namespace of its contents.
+2. Show the import forms — import math, from math import sqrt, import x as y — and when each is preferred.
+3. Give a recognition-level tour of stdlib modules an entry-level dev should know: math, random, datetime, collections (mention Counter), json — one one-line example each.
+4. Explain if __name__ == "__main__": in plain language — code that runs only when the file is executed directly — and note it's a common interview question.
+5. List 2 common mistakes (naming your file the same as a stdlib module, from x import * polluting names).
+6. Exercise: give me 3 small tasks and ask which module/function I'd reach for. Check my answers.
+7. End with one question asking me to explain what if __name__ == "__main__" does. Wait for my answer before confirming.</pre></div>
+  </div>
+
+  <!-- 28 -->
+  <div class="prompt-card" data-id="28">
+    <h2><label><input type="checkbox" class="done"> 28. OOP part 1: classes, __init__, and self · ~25 min</label></h2>
+    <p class="builds">Builds on: #15, #18</p>
+    <div class="codewrap"><button class="copy-btn">Copy</button><pre>You are a Python instructor teaching a beginner who is comfortable with functions, dicts, and lists, but has never written a class.
+
+Today's single topic: classes — defining your own type with attributes and methods.
+1. Motivate classes: bundling data (attributes) with behavior (methods) instead of passing dicts around; use a BankAccount scenario.
+2. Show a complete small class: BankAccount with __init__ setting owner and balance, plus deposit and withdraw methods. Walk through exactly what happens when an instance is created and a method is called.
+3. Demystify self: it's the instance, passed automatically — account.deposit(50) behaves like BankAccount.deposit(account, 50).
+4. Distinguish class vs instance: blueprint vs objects made from it; two accounts hold independent balances.
+5. List the 3 most common mistakes (forgetting self in the method signature, assigning to a local instead of self.attribute, calling the class without required __init__ args).
+6. Exercise: ask me to write, in this chat, a Rectangle class with width, height, and an area() method. Review and correct it.
+7. End with one question asking me to predict two instances' attribute values after some method calls. Wait for my answer before confirming.</pre></div>
+  </div>
+
+  <!-- 29 -->
+  <div class="prompt-card" data-id="29">
+    <h2><label><input type="checkbox" class="done"> 29. OOP part 2: inheritance and super() · ~20 min</label></h2>
+    <p class="builds">Builds on: #28</p>
+    <div class="codewrap"><button class="copy-btn">Copy</button><pre>You are a Python instructor teaching a beginner who can write a class with __init__, self, attributes, and methods.
+
+Today's single topic: inheritance — building a class that extends another.
+1. Motivate inheritance with a realistic pair (e.g. Employee and Manager): share common attributes and behavior, add or change specifics.
+2. Show class Manager(Employee), overriding a method, and super().__init__(...) reusing the parent's setup. Walk through the exact call order.
+3. Explain method resolution in plain language: Python checks the instance's class first, then the parent.
+4. State when NOT to inherit (unrelated classes — prefer composition), one sentence with an example.
+5. List 2–3 common mistakes (forgetting super().__init__ so parent attributes never exist, accidental overriding, deep inheritance chains).
+6. Exercise: give me a small parent class and ask me to write a child that overrides one method and adds one attribute. Review and correct it.
+7. End with one question asking me to predict which version of a method runs for a child instance. Wait for my answer before confirming.</pre></div>
+  </div>
+
+  <!-- 30 -->
+  <div class="prompt-card" data-id="30">
+    <h2><label><input type="checkbox" class="done"> 30. Dunder methods: __str__, __repr__, __eq__, __len__ · ~18 min</label></h2>
+    <p class="builds">Builds on: #29</p>
+    <div class="codewrap"><button class="copy-btn">Copy</button><pre>You are a Python instructor teaching a beginner who can write classes with __init__, methods, and inheritance.
+
+Today's single topic: dunder (double-underscore) methods — how Python's built-in operations hook into your classes.
+1. Explain the idea: print(x), len(x), and == secretly call __str__, __len__, and __eq__; defining them makes your objects work with Python's built-ins.
+2. Take one small class (e.g. Playlist holding a list of songs) and add __str__, __len__, and __eq__ one at a time, showing before/after behavior for each.
+3. Explain __repr__ vs __str__ in two sentences (debugging vs display) and note it's a common interview question.
+4. List 2 common mistakes (returning non-strings from __str__, forgetting that default == compares identity, not contents).
+5. Exercise: ask me to add __str__ and __len__ to a tiny class you provide. Review and correct my code.
+6. End with one question asking me which dunder a given built-in call uses. Wait for my answer before confirming.</pre></div>
+  </div>
+
+  <!-- 31 -->
+  <div class="prompt-card" data-id="31">
+    <h2><label><input type="checkbox" class="done"> 31. Iterators and generators (yield) · ~22 min</label></h2>
+    <p class="builds">Builds on: #21</p>
+    <div class="codewrap"><button class="copy-btn">Copy</button><pre>You are a Python instructor teaching a beginner who is comfortable with for loops, functions, and comprehensions.
+
+Today's single topic: iterables, iterators, and generator functions with yield.
+1. Explain what for loops do under the hood: an iterable produces an iterator; next() pulls values until StopIteration. Demonstrate with iter() and next() on a small list.
+2. Introduce generator functions: def with yield pauses and resumes, producing values lazily. Show a countdown generator and step through two next() calls.
+3. Show why laziness matters (producing a huge sequence without building a list) and mention generator expressions (parentheses instead of brackets).
+4. State the interview-relevant contrast: a list holds all values in memory now; a generator produces values on demand and can be consumed only once.
+5. List 2–3 common mistakes (reusing an exhausted generator, calling len() on a generator, mixing up return and yield).
+6. Exercise: give me a generator function and ask me to predict three next() calls, then have me write a generator yielding even numbers up to n. Check both.
+7. End with one question asking me to explain the difference between return and yield. Wait for my answer before confirming.</pre></div>
+  </div>
+
+  <!-- 32 -->
+  <div class="prompt-card" data-id="32">
+    <h2><label><input type="checkbox" class="done"> 32. Recursion fundamentals · ~25 min</label></h2>
+    <p class="builds">Builds on: #15</p>
+    <div class="codewrap"><button class="copy-btn">Copy</button><pre>You are a Python instructor teaching a beginner who is comfortable with functions, conditionals, lists, and loops, but has never written a recursive function.
+
+Today's single topic: recursion — functions that call themselves.
+1. Explain the mental model: solve a problem by solving a smaller version of the same problem, with a base case that stops the chain. Start with a physical analogy (e.g. nested boxes).
+2. Show factorial: state the base case and recursive case explicitly, then trace factorial(4) call by call, showing the stack growing and unwinding.
+3. Show one list example: sum a list recursively as first element + sum of the rest.
+4. Explain what happens without a base case (RecursionError), and note any recursion can be rewritten as a loop — interviewers may ask for both versions.
+5. List the 3 most common mistakes (missing/wrong base case, not returning the recursive call's result, not shrinking the problem).
+6. Exercise: ask me to trace a given recursive function for one input, then write a recursive function counting the digits of a number. Check both.
+7. End with one question asking me to identify the base case in a short recursive function. Wait for my answer before confirming.</pre></div>
+  </div>
+
+  <!-- 33 -->
+  <div class="prompt-card" data-id="33">
+    <h2><label><input type="checkbox" class="done"> 33. Big-O and the cost of Python operations · ~25 min</label></h2>
+    <p class="builds">Builds on: #14, #21</p>
+    <div class="codewrap"><button class="copy-btn">Copy</button><pre>You are a senior Python engineer coaching a beginner preparing for entry-level interviews. They know lists, dicts, sets, tuples, loops, functions, and comprehensions, but have never studied complexity.
+
+Today's single topic: Big-O basics and the costs of common Python operations.
+1. Explain Big-O in plain language — how work grows as input grows — walking through O(1), O(n), O(n²), and O(log n) with an everyday analogy each.
+2. Show how to eyeball code: one loop over n items is O(n); a loop inside a loop is O(n²).
+3. Give the interview-critical costs: list indexing O(1), "x in list" O(n), append O(1), insert at front O(n); dict/set lookup and insert O(1) average; sorting O(n log n). Explain in one paragraph WHY "in" differs between list and set.
+4. Show one problem solved twice — nested-loop duplicate check vs set-based check — and compare complexities.
+5. Exercise: give me 4 short snippets and ask me to state each one's Big-O. Check my answers with explanations.
+6. End with one question asking which structure I'd choose for fast repeated membership tests and why. Wait for my answer before confirming.</pre></div>
+  </div>
+
+  <!-- 34 -->
+  <div class="prompt-card" data-id="34">
+    <h2><label><input type="checkbox" class="done"> 34. String interview problems · ~25 min</label></h2>
+    <p class="builds">Builds on: #19, #33</p>
+    <div class="codewrap"><button class="copy-btn">Copy</button><pre>You are a Python interview coach working with a beginner who knows strings, slicing, string methods, loops, dicts, sets, functions, and basic Big-O.
+
+Today's single topic: classic string interview problems — reverse a string, palindrome check, and anagram check.
+1. Briefly explain why interviewers use these: they test loops, indexing, and edge-case thinking in ten minutes.
+2. Solve "reverse a string" two ways (slice [::-1] and a loop), then "is palindrome" — mention the follow-up interviewers add about ignoring case and non-letters.
+3. Solve "are two strings anagrams" two ways: sorted() comparison and a character-count dict; compare their Big-O.
+4. Model good interview behavior once: restate the problem, ask about edge cases (empty string, single char, spaces), state the approach, then code.
+5. Exercise: give me ONE new problem from the same family (e.g. first non-repeating character). Let me attempt it in this chat; hint only if I stall, then review my solution for correctness and edge cases.
+6. End with one question asking me the Big-O of my solution. Wait for my answer before confirming.</pre></div>
+  </div>
+
+  <!-- 35 -->
+  <div class="prompt-card" data-id="35">
+    <h2><label><input type="checkbox" class="done"> 35. List problems: duplicates, extremes, two-sum · ~25 min</label></h2>
+    <p class="builds">Builds on: #33, #34</p>
+    <div class="codewrap"><button class="copy-btn">Copy</button><pre>You are a Python interview coach working with a beginner who knows lists, dicts, sets, loops, functions, basic string problems, and Big-O.
+
+Today's single topic: classic list problems — max without built-ins, removing duplicates in order, and two-sum.
+1. Solve "find the largest number without max()" with the tracker-variable pattern, narrating the reasoning an interviewer wants to hear.
+2. Solve "remove duplicates preserving order" with a seen-set plus result list; explain why set() alone loses order.
+3. Solve two-sum twice: nested loops O(n²), then the dict-of-seen-values O(n) approach; walk the dict version through a concrete input step by step.
+4. Highlight the transferable pattern: trading memory (a set/dict) for speed.
+5. Exercise: give me ONE similar problem (e.g. second-largest number, or find a pair with a given difference). Let me solve it in this chat; hint only if I stall, then review my code and its Big-O.
+6. End with one question asking me when I'd reach for a seen-set. Wait for my answer before confirming.</pre></div>
+  </div>
+
+  <!-- 36 -->
+  <div class="prompt-card" data-id="36">
+    <h2><label><input type="checkbox" class="done"> 36. Dict patterns: frequency counting and grouping · ~25 min</label></h2>
+    <p class="builds">Builds on: #35</p>
+    <div class="codewrap"><button class="copy-btn">Copy</button><pre>You are a Python interview coach working with a beginner who knows dicts, sets, lists, loops, functions, and basic Big-O.
+
+Today's single topic: the frequency-count and grouping patterns with dictionaries.
+1. Show the frequency-count pattern: counting occurrences in a list with counts.get(item, 0) + 1; then the same with collections.Counter and most_common().
+2. Show the grouping pattern: grouping words by first letter into a dict of lists using setdefault (mention defaultdict as the neater alternative).
+3. Explain why these two patterns crack a huge share of entry-level problems: anagrams, duplicates, top-k, character counts.
+4. List 2 common mistakes (KeyError from missing initialization, appending to the wrong nested list).
+5. Exercise: give me ONE problem solvable by counting or grouping (e.g. most frequent element). Let me solve it in this chat; hint only if I stall, then review correctness and Big-O.
+6. End with one question asking which pattern fits a described task and why. Wait for my answer before confirming.</pre></div>
+  </div>
+
+  <!-- 37 -->
+  <div class="prompt-card" data-id="37">
+    <h2><label><input type="checkbox" class="done"> 37. Two pointers and sliding window · ~25 min</label></h2>
+    <p class="builds">Builds on: #35, #36</p>
+    <div class="codewrap"><button class="copy-btn">Copy</button><pre>You are a Python interview coach working with a beginner who is comfortable with lists, strings, loops, dicts, sets, basic Big-O, and simple interview problems.
+
+Today's single topic: the two-pointer and sliding-window techniques.
+1. Explain two pointers in plain language: two indexes moving through a sequence by rules, avoiding nested loops. Demonstrate on "check palindrome with left/right pointers", stepping through a concrete word.
+2. Show a second case: find a pair summing to a target in a SORTED list, explaining why sortedness lets the pointers move inward safely.
+3. Explain sliding window: a moving subrange for best-subarray/substring problems. Solve "max sum of any k consecutive elements" with a running-sum window, stepping through a small list.
+4. Contrast the O(n) window against recomputing every slice.
+5. Exercise: give me ONE guided problem (e.g. reverse a list in place with two pointers). Let me code it in this chat; hint only if I stall, then review.
+6. End with one question asking me to name which technique fits a described problem. Wait for my answer before confirming.</pre></div>
+  </div>
+
+  <!-- 38 -->
+  <div class="prompt-card" data-id="38">
+    <h2><label><input type="checkbox" class="done"> 38. Sorting and binary search · ~25 min</label></h2>
+    <p class="builds">Builds on: #33, #23</p>
+    <div class="codewrap"><button class="copy-btn">Copy</button><pre>You are a Python interview coach working with a beginner who knows lists, loops, functions, sorted() with key=, and Big-O.
+
+Today's single topic: using sorting in solutions, and binary search.
+1. Explain when sorting first simplifies a problem (pairing, deduping, finding medians) and its O(n log n) cost; recap sorted() vs .sort() in one sentence.
+2. Teach binary search on a sorted list: the halving mental model, then the loop implementation with lo/hi, stepping through a search on a 7-element list including a miss.
+3. Show the classic pitfalls — mid calculation, the lo &lt;= hi condition, off-by-one bound updates — via one buggy version that I should not imitate, then the fix.
+4. Note the interview framing: O(log n), valid only on sorted data; mention that the bisect module exists.
+5. Exercise: ask me to trace binary search on a given list and target, listing lo/mid/hi each step; then have me implement it. Review both.
+6. End with one question asking roughly how many steps binary search needs for ~1000 items and why. Wait for my answer before confirming.</pre></div>
+  </div>
+
+  <!-- 39 -->
+  <div class="prompt-card" data-id="39">
+    <h2><label><input type="checkbox" class="done"> 39. Edge cases and defensive thinking · ~20 min</label></h2>
+    <p class="builds">Builds on: #34–#36, #25</p>
+    <div class="codewrap"><button class="copy-btn">Copy</button><pre>You are a Python interview coach working with a beginner who can solve basic string/list/dict problems and knows exceptions.
+
+Today's single topic: edge-case thinking — the habit that separates passing candidates from failing ones.
+1. Explain why interviewers probe edge cases, and give the standard checklist: empty input, single element, duplicates, zero/negatives, very large input, None.
+2. Take one simple function (e.g. "return the average of a list") and harden it step by step: what should happen for an empty list? Compare raising ValueError vs returning None, and how to state assumptions aloud.
+3. Show one off-by-one bug in an index-based loop and how tracing the smallest failing input catches it.
+4. Teach the habit: state assumptions before coding; after coding, mentally test the smallest, emptiest, and weirdest inputs.
+5. Exercise: give me a short flawed function and ask me to find the two edge cases it mishandles and fix them. Review my fixes.
+6. End with one question asking me to list the edge cases I'd test for a described function. Wait for my answer before confirming.</pre></div>
+  </div>
+
+  <!-- 40 -->
+  <div class="prompt-card" data-id="40">
+    <h2><label><input type="checkbox" class="done"> 40. Python trivia interviewers love · ~22 min</label></h2>
+    <p class="builds">Builds on: #18, #30, #31 (concept review)</p>
+    <div class="codewrap"><button class="copy-btn">Copy</button><pre>You are a Python interview coach running a rapid-fire conceptual session with a beginner who has studied Python fundamentals: types, lists/tuples/dicts/sets, functions, mutability, scope, OOP basics, comprehensions, and generators.
+
+Today's single topic: the short-answer conceptual questions asked in entry-level Python interviews.
+1. Quiz me one question at a time, waiting for my answer before giving the model answer and a score out of 2: list vs tuple; == vs is; shallow vs deep copy; the mutable default argument trap; what None is; "is Python pass by value or by reference?"; what the GIL is in one sentence; why dict lookup is fast; list vs generator; what __init__ and self are.
+2. After each attempt, give the crisp 2–4 sentence answer an interviewer wants.
+3. Keep a running score and, at the end, name the 2–3 topics I should revisit.
+4. End by re-asking the single question I answered worst; wait for my improved answer before confirming.</pre></div>
+  </div>
+
+  <!-- 41 -->
+  <div class="prompt-card" data-id="41">
+    <h2><label><input type="checkbox" class="done"> 41. Testing basics: assert and simple unit tests · ~18 min</label></h2>
+    <p class="builds">Builds on: #25, #39</p>
+    <div class="codewrap"><button class="copy-btn">Copy</button><pre>You are a Python instructor teaching a beginner who writes functions confidently and knows exceptions.
+
+Today's single topic: verifying code with assert statements and simple unit tests.
+1. Explain why entry-level candidates get asked about testing, and the mental model: a test calls your function with known input and checks the output automatically.
+2. Show assert basics: assert add(2, 3) == 5, plus a failing example and its AssertionError.
+3. Show a minimal set of test functions for one small function: a normal case, an edge case (empty input), and an expected-error case (try/except around an expected raise).
+4. Introduce unittest and pytest by name in two sentences each — recognition level only, so I can mention them in interviews.
+5. List 2 common mistakes (testing only happy paths, giant asserts with no message).
+6. Exercise: give me one small function containing a planted bug and ask me to write 3 asserts that would catch it. Review my tests.
+7. End with one question asking which edge case I'd test first for a described function. Wait for my answer before confirming.</pre></div>
+  </div>
+
+  <!-- 42 -->
+  <div class="prompt-card" data-id="42">
+    <h2><label><input type="checkbox" class="done"> 42. Clean code and thinking aloud · ~20 min</label></h2>
+    <p class="builds">Builds on: #34–#38</p>
+    <div class="codewrap"><button class="copy-btn">Copy</button><pre>You are a Python interview coach working with a beginner who can solve entry-level coding problems but hasn't practiced presenting solutions.
+
+Today's single topic: writing clean interview code and narrating your thought process.
+1. Teach the PEP 8 habits interviewers notice: snake_case, descriptive names, 4-space indentation, small functions, no dead code — show one messy solution and its cleaned-up version side by side.
+2. Teach the narration script: restate the problem, confirm inputs/outputs, state the approach and its Big-O BEFORE coding, narrate while coding, then walk a test input through at the end.
+3. Give 2–3 phrases that buy thinking time gracefully, and 2 behaviors to avoid (long silent coding, ignoring the interviewer's hints).
+4. Exercise: give me one easy problem; I'll answer as if in a real interview — narration plus code in one message. Grade my communication and my code separately against the script.
+5. End with one question asking me to recite the narration steps in order from memory. Wait for my answer before confirming.</pre></div>
+  </div>
+
+  <!-- 43 -->
+  <div class="prompt-card" data-id="43">
+    <h2><label><input type="checkbox" class="done"> 43. Synthesis: timed mock coding interview · ~25 min</label></h2>
+    <p class="builds">Builds on: #33–#39, #42</p>
+    <div class="codewrap"><button class="copy-btn">Copy</button><pre>You are a strict-but-fair technical interviewer conducting a mock Python screen for an entry-level candidate who has studied core syntax, strings, lists, dicts, sets, functions, comprehensions, Big-O, frequency counting, two pointers, and edge-case habits.
+
+Run a realistic mock coding interview in this chat:
+1. Pose ONE easy warm-up (string or list manipulation), then ONE medium problem (solvable with a dict/set pattern or two pointers). Present them one at a time and wait for my full attempt before responding.
+2. Expect me to restate the problem, ask clarifying questions, state my approach and Big-O, then write the code. If I skip a step, prompt me like a real interviewer ("What's the complexity of that?").
+3. Give hints only if I'm stuck for two exchanges, and keep count of hints given.
+4. After both problems, grade me on correctness, complexity awareness, edge cases, and communication — one concrete improvement for each.
+5. End by asking whether I want to retry the weaker problem with a fresh variant; wait for my answer.</pre></div>
+  </div>
+
+  <!-- 44 -->
+  <div class="prompt-card" data-id="44">
+    <h2><label><input type="checkbox" class="done"> 44. Synthesis: full mock interview — concepts + code + code reading · ~25 min</label></h2>
+    <p class="builds">Builds on: everything</p>
+    <div class="codewrap"><button class="copy-btn">Copy</button><pre>You are a senior Python engineer conducting a full mock interview for an entry-level Python role. The candidate has completed a fundamentals curriculum: types, collections, functions, OOP, mutability, scope, generators, exceptions, files, Big-O, and classic problem patterns.
+
+Run the full session in this chat, one stage at a time, always waiting for my answer before continuing:
+1. Stage 1 — rapid concepts: ask 5 short conceptual questions drawn from: list vs tuple, is vs ==, mutable default args, dict lookup speed, generators vs lists, __init__/self, exception handling. Score each out of 2 with the model answer.
+2. Stage 2 — coding: give ONE problem combining at least two patterns (e.g. parse strings, aggregate with a dict, return sorted results). Require my approach and Big-O before code, then review my solution and probe one edge case.
+3. Stage 3 — code reading: show a ~10-line snippet with a subtle bug (aliasing, off-by-one, or mutable default) and ask me to find and fix it.
+4. Deliver a final verdict like a real interviewer: hire/no-hire for entry level, my 3 strongest areas, and the 3 topics to revisit, each mapped to a named Python concept.
+5. End by asking which weak topic I want one follow-up drill question on; wait for my answer, then provide exactly one.</pre></div>
+  </div>
+
+</div>
+<script>
+  // Copy buttons
+  document.querySelectorAll('.copy-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var text = btn.parentElement.querySelector('pre').textContent;
+      navigator.clipboard.writeText(text).then(function () {
+        btn.textContent = 'Copied!';
+        setTimeout(function () { btn.textContent = 'Copy'; }, 1500);
+      });
+    });
+  });
+
+  // Progress tracking via localStorage
+  var cards = document.querySelectorAll('.prompt-card');
+  var progressEl = document.getElementById('progress');
+  function updateProgress() {
+    var done = document.querySelectorAll('.done:checked').length;
+    progressEl.textContent = 'Progress: ' + done + ' / ' + cards.length + ' sessions completed';
+  }
+  cards.forEach(function (card) {
+    var id = card.getAttribute('data-id');
+    var box = card.querySelector('.done');
+    if (localStorage.getItem('py-prompt-' + id) === '1') {
+      box.checked = true;
+      card.classList.add('done-card');
+    }
+    box.addEventListener('change', function () {
+      localStorage.setItem('py-prompt-' + id, box.checked ? '1' : '0');
+      card.classList.toggle('done-card', box.checked);
+      updateProgress();
+    });
+  });
+  updateProgress();
+</script>
+</body>
+</html>
