@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="18 copyable beginner prompts for a six-hour critical-thinking course.">
+  <title>Critical Thinking — Learning Prompts (Beginner, ~6h)</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f5f6f8;
+      --card: #fff;
+      --text: #202733;
+      --muted: #5d6878;
+      --accent: #245bd6;
+      --border: #dfe4ec;
+      --code-bg: #111827;
+      --code-text: #e5eaf2;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      padding: 2rem 1rem 4rem;
+      background: var(--bg);
+      color: var(--text);
+      font: 16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    .container { max-width: 900px; margin: 0 auto; }
+    h1 { margin: 0 0 .65rem; font-size: clamp(1.65rem, 4vw, 2.1rem); line-height: 1.2; }
+    .intro { color: var(--muted); margin: 0 0 1.25rem; }
+    .note, .howto {
+      border: 1px solid;
+      border-radius: 10px;
+      padding: .85rem 1rem;
+      margin: 1rem 0;
+    }
+    .note { background: #fff8e8; border-color: #f0d48a; }
+    .howto { background: #eef4ff; border-color: #c7d8ff; margin-bottom: 1.25rem; }
+    .jump {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .45rem;
+      margin: 1rem 0 1.5rem;
+    }
+    .jump a {
+      min-width: 2.3rem;
+      padding: .3rem .55rem;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: var(--card);
+      color: var(--accent);
+      font-size: .9rem;
+      text-align: center;
+      text-decoration: none;
+    }
+    .jump a:hover, .jump a:focus-visible { border-color: var(--accent); background: #edf3ff; }
+    .prompt-card {
+      scroll-margin-top: 1rem;
+      margin: 0 0 1.15rem;
+      padding: 1.1rem 1.2rem 1.2rem;
+      border: 1px solid var(--border);
+      border-radius: 11px;
+      background: var(--card);
+    }
+    .prompt-card h2 { margin: 0 0 .2rem; font-size: 1.08rem; line-height: 1.4; }
+    .builds { margin: 0 0 .8rem; color: var(--muted); font-size: .9rem; }
+    .codewrap { position: relative; }
+    pre {
+      overflow-x: auto;
+      margin: 0;
+      padding: 3.1rem 1rem 1rem;
+      border-radius: 8px;
+      background: var(--code-bg);
+      color: var(--code-text);
+      font: .84rem/1.6 "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      tab-size: 2;
+    }
+    .copy-btn {
+      position: absolute;
+      top: .55rem;
+      right: .55rem;
+      min-height: 2rem;
+      padding: .35rem .7rem;
+      border: 1px solid #526078;
+      border-radius: 6px;
+      background: #293548;
+      color: #fff;
+      font: inherit;
+      font-size: .82rem;
+      cursor: pointer;
+    }
+    .copy-btn:hover, .copy-btn:focus-visible { background: var(--accent); border-color: var(--accent); }
+    .copy-status { min-height: 1.4rem; margin: .35rem 0 0; color: #17633a; font-size: .85rem; }
+    .why-order { margin-top: 1.5rem; padding: 1rem 1.1rem; border-top: 1px solid var(--border); color: var(--muted); }
+    @media (max-width: 600px) {
+      body { padding: 1.25rem .75rem 3rem; }
+      .prompt-card { padding: .9rem; }
+      pre { font-size: .79rem; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <h1>Critical Thinking: Learning Prompts</h1>
+    <p class="intro">Beginner course · 18 sessions · about 6 hours total</p>
+
+    <div class="note"><strong>Sanity check:</strong> 6 hours is realistic for a beginner foundation in critical thinking. It gives you a working toolkit, not mastery. The list is 18 sessions of about 20 minutes each, and the last two apply everything to real life.</div>
+    <div class="howto"><strong>How to use:</strong> Open a fresh chat for each prompt below. Click <em>Copy prompt</em>, then paste it into the chat. Work through the conversation until the LLM's end-of-session check. Move to the next prompt in a new chat.</div>
+
+    <nav class="jump" aria-label="Jump to a session">
+      <a href="#session-1">1</a><a href="#session-2">2</a><a href="#session-3">3</a><a href="#session-4">4</a><a href="#session-5">5</a><a href="#session-6">6</a>
+      <a href="#session-7">7</a><a href="#session-8">8</a><a href="#session-9">9</a><a href="#session-10">10</a><a href="#session-11">11</a><a href="#session-12">12</a>
+      <a href="#session-13">13</a><a href="#session-14">14</a><a href="#session-15">15</a><a href="#session-16">16</a><a href="#session-17">17</a><a href="#session-18">18</a>
+    </nav>
+
+    <section class="prompt-card" id="session-1" aria-labelledby="title-1">
+      <h2 id="title-1">1. What critical thinking is (and isn't) · ~20 min</h2>
+      <p class="builds">Builds on: nothing, start here</p>
+      <div class="codewrap"><button class="copy-btn" type="button" aria-label="Copy prompt 1">Copy prompt</button><pre>You are an expert in critical thinking and reasoning, teaching a complete beginner with no formal training in logic or philosophy.
+
+Teach me one idea: **what critical thinking actually is**.
+1. Define it in 2-3 plain sentences, then contrast it with what people wrongly assume it is (being negative, cynical, "smart", or argumentative).
+2. Give me one simple mental model I can remember, such as a habit of pausing to ask "what am I being asked to believe or do, and why should I?"
+3. Show 3 everyday scenarios (a workplace decision, a purchase, a social media claim), each handled uncritically vs. critically.
+4. List the 2-3 most common beginner misconceptions.
+5. Give me one short exercise: describe a situation and ask me what the uncritical and the critical reactions would each look like. Correct me.
+6. End by asking me to explain critical thinking in my own words. Wait for my answer before confirming.
+Be direct and concise, no filler.</pre></div>
+      <p class="copy-status" aria-live="polite"></p>
+    </section>
+
+    <section class="prompt-card" id="session-2" aria-labelledby="title-2">
+      <h2 id="title-2">2. Fast vs. slow thinking · ~20 min</h2>
+      <p class="builds">Builds on: #1</p>
+      <div class="codewrap"><button class="copy-btn" type="button" aria-label="Copy prompt 2">Copy prompt</button><pre>You are an expert in cognitive psychology and reasoning, teaching a beginner who knows that "critical thinking" means questioning claims carefully, but knows nothing about how the mind makes judgments.
+
+Teach me one idea: **intuitive (fast) thinking vs. deliberate (slow) thinking**.
+1. Explain the two modes in plain language, without jargon.
+2. Give 3 examples where fast thinking works well and 3 where it fails badly. Include one classic trick question (like the bat-and-ball problem) and let me try it before revealing the answer.
+3. Teach me 4 practical triggers that signal "slow down now" (high stakes, strong emotion, time pressure, unfamiliar territory).
+4. List common mistakes, such as thinking I should always think slowly.
+5. Give me 3 quick everyday scenarios and ask which mode I should use in each and why. Correct me.
+6. End by asking me one question: which trigger do I think I most often ignore in daily life, and what's one example? Wait for my answer.
+Be direct and concise.</pre></div>
+      <p class="copy-status" aria-live="polite"></p>
+    </section>
+
+    <section class="prompt-card" id="session-3" aria-labelledby="title-3">
+      <h2 id="title-3">3. Anatomy of an argument: claim, evidence, reasoning · ~20 min</h2>
+      <p class="builds">Builds on: #1</p>
+      <div class="codewrap"><button class="copy-btn" type="button" aria-label="Copy prompt 3">Copy prompt</button><pre>You are an expert in argumentation and informal logic, teaching a beginner who only knows the everyday meaning of "argument" (a quarrel) and has never broken one into parts.
+
+Teach me one idea: **the three parts of an argument: claim, evidence, and the reasoning that links them**.
+1. Define each part in plain language with one-line examples.
+2. Show me how to pull a short everyday paragraph (an ad, a friend's opinion, a news headline) apart into these parts. Do 3 examples of increasing difficulty.
+3. Explain the most common beginner mistakes: confusing the claim with the evidence, and missing that the link between evidence and claim is itself something to check.
+4. Give me an exercise: write a short argument and ask me to label the claim, the evidence, and the link, and to say whether the link holds. Correct me.
+5. End by giving me one new short argument and asking me to identify the three parts. Wait for my answer before confirming.
+Be direct and concise.</pre></div>
+      <p class="copy-status" aria-live="polite"></p>
+    </section>
+
+    <section class="prompt-card" id="session-4" aria-labelledby="title-4">
+      <h2 id="title-4">4. Fact, opinion, interpretation, assumption · ~20 min</h2>
+      <p class="builds">Builds on: #3</p>
+      <div class="codewrap"><button class="copy-btn" type="button" aria-label="Copy prompt 4">Copy prompt</button><pre>You are an expert in critical thinking, teaching a beginner who can roughly tell "fact" from "opinion" but struggles when statements mix the two.
+
+Teach me one idea: **distinguishing facts, opinions, interpretations, and assumptions in everyday statements**.
+1. Define the four categories in plain language, with a test question for each (e.g., "can this be checked against evidence?").
+2. Show 5 realistic statements (a manager's feedback, a news line, a product review) and classify each, explaining the tricky ones where a fact and an interpretation are blended together.
+3. Explain why this matters: how disagreements often come from different interpretations of the same facts.
+4. List the 2-3 most common mistakes (e.g., treating confident statements as facts).
+5. Give me an exercise: 6 statements for me to classify. Correct me one by one.
+6. End by asking me to rewrite one blended statement so the fact and the interpretation are separated. Wait for my answer.
+Be direct and concise.</pre></div>
+      <p class="copy-status" aria-live="polite"></p>
+    </section>
+
+    <section class="prompt-card" id="session-5" aria-labelledby="title-5">
+      <h2 id="title-5">5. Why brains misfire: cognitive biases · ~20 min</h2>
+      <p class="builds">Builds on: #2</p>
+      <div class="codewrap"><button class="copy-btn" type="button" aria-label="Copy prompt 5">Copy prompt</button><pre>You are an expert in cognitive psychology, teaching a beginner who knows that people can be "biased" but can't name any specific biases.
+
+Teach me one idea: **what a cognitive bias is and the 5 that affect daily life most**.
+1. Explain in plain language what a bias is and why the brain uses mental shortcuts.
+2. Cover these 5, each with a one-line definition and a realistic everyday example: anchoring, availability, sunk cost, halo effect, bandwagon (social proof).
+3. Explain the key truth: I can't remove biases by willpower, but I can catch them with simple habits. Give one catching habit per bias.
+4. List the common mistake of using bias names to dismiss other people's views.
+5. Give me an exercise: 5 short scenarios, and I name the bias in each. Correct me.
+6. End by asking me to describe one recent decision of mine and which bias might have influenced it. Wait for my answer.
+Be direct and concise.</pre></div>
+      <p class="copy-status" aria-live="polite"></p>
+    </section>
+
+    <section class="prompt-card" id="session-6" aria-labelledby="title-6">
+      <h2 id="title-6">6. Confirmation bias and motivated reasoning · ~20 min</h2>
+      <p class="builds">Builds on: #5</p>
+      <div class="codewrap"><button class="copy-btn" type="button" aria-label="Copy prompt 6">Copy prompt</button><pre>You are an expert in reasoning and decision psychology, teaching a beginner who knows that cognitive biases exist but hasn't studied confirmation bias or motivated reasoning in depth.
+
+Teach me one idea: **confirmation bias and motivated reasoning, and how to counter them**.
+1. Explain both in plain language and how they differ (looking for support vs. wanting a particular conclusion).
+2. Give 3 realistic examples: news and social media feeds, workplace opinions, and personal beliefs.
+3. Teach me 3 concrete counter-habits: ask "what would change my mind?", deliberately search for the best opposing evidence, and test conclusions I like more strictly than ones I dislike.
+4. List common mistakes (e.g., thinking intelligence protects me from it).
+5. Exercise: ask me to name a belief I hold on a mild topic, then coach me step by step to find the strongest disconfirming evidence for it.
+6. End by asking me what evidence would make me change that belief. Wait for my answer before confirming.
+Be direct and concise.</pre></div>
+      <p class="copy-status" aria-live="polite"></p>
+    </section>
+
+    <section class="prompt-card" id="session-7" aria-labelledby="title-7">
+      <h2 id="title-7">7. Spotting hidden assumptions · ~20 min</h2>
+      <p class="builds">Builds on: #3</p>
+      <div class="codewrap"><button class="copy-btn" type="button" aria-label="Copy prompt 7">Copy prompt</button><pre>You are an expert in critical thinking, teaching a beginner who can identify a claim and its evidence in a simple argument but cannot yet see what's unstated.
+
+Teach me one idea: **finding hidden assumptions**.
+1. Define an assumption in plain language and explain why unstated assumptions are where most reasoning breaks.
+2. Teach me a simple technique: complete the sentence "This conclusion only holds if..." for each argument.
+3. Walk me through 3 examples (a business pitch, a relationship statement like "he didn't text, so he's not interested", and a news claim), surfacing the hidden assumptions and judging whether each is reasonable.
+4. List common mistakes (e.g., confusing an assumption with a fact, or listing trivial assumptions).
+5. Exercise: give me a short argument and ask me to list its hidden assumptions and rank the riskiest. Correct me.
+6. End by giving me one new argument and asking for its single riskiest assumption. Wait for my answer.
+Be direct and concise.</pre></div>
+      <p class="copy-status" aria-live="polite"></p>
+    </section>
+
+    <section class="prompt-card" id="session-8" aria-labelledby="title-8">
+      <h2 id="title-8">8. Asking better questions · ~20 min</h2>
+      <p class="builds">Builds on: #3, #7</p>
+      <div class="codewrap"><button class="copy-btn" type="button" aria-label="Copy prompt 8">Copy prompt</button><pre>You are an expert in critical thinking, teaching a beginner who tends to accept claims or reject them by gut feeling, without a method for questioning them.
+
+Teach me one idea: **a small set of questions that test any claim**.
+1. Teach me these 6 questions, each with a one-line purpose: What exactly is being claimed? What is the evidence? Compared to what? Who benefits if I believe this? What's missing? What would prove this wrong?
+2. Show all 6 applied to one claim, then show 2 more examples where only the most useful 2-3 questions are used.
+3. Teach the "5 Whys" technique for getting to root causes, with a workplace example.
+4. List common mistakes (e.g., asking questions to win rather than to understand).
+5. Exercise: give me a claim and ask me to produce my best 3 questions. Correct me.
+6. End by giving me a new claim and asking for the single most revealing question. Wait for my answer.
+Be direct and concise.</pre></div>
+      <p class="copy-status" aria-live="polite"></p>
+    </section>
+
+    <section class="prompt-card" id="session-9" aria-labelledby="title-9">
+      <h2 id="title-9">9. Evaluating sources and credibility · ~20 min</h2>
+      <p class="builds">Builds on: #8</p>
+      <div class="codewrap"><button class="copy-btn" type="button" aria-label="Copy prompt 9">Copy prompt</button><pre>You are an expert in information literacy, teaching a beginner who currently judges information mostly by whether it "sounds right" or looks professional.
+
+Teach me one idea: **how to judge whether a source deserves trust**.
+1. Teach a 5-point check: expertise on this specific topic, incentives and conflicts of interest, evidence shown, whether independent sources agree, and how recent it is.
+2. Teach "lateral reading": instead of studying the source itself, check what others say about it. Explain this in plain language, with no links.
+3. Explain primary vs. secondary sources and why screenshots and forwards are weak evidence.
+4. Exercise: describe 3 sources (a forwarded message, a health article written by a supplement seller, a news report citing named experts). I rank them and explain why. Correct me.
+5. List common mistakes (e.g., trusting design, confusing popularity with reliability).
+6. End by giving me one new source and asking which single check I'd run first and why. Wait for my answer.
+Be direct and concise.</pre></div>
+      <p class="copy-status" aria-live="polite"></p>
+    </section>
+
+    <section class="prompt-card" id="session-10" aria-labelledby="title-10">
+      <h2 id="title-10">10. Correlation vs. causation · ~20 min</h2>
+      <p class="builds">Builds on: #3</p>
+      <div class="codewrap"><button class="copy-btn" type="button" aria-label="Copy prompt 10">Copy prompt</button><pre>You are an expert in reasoning about evidence, teaching a beginner with no statistics background.
+
+Teach me one idea: **correlation is not causation, and what to check instead**.
+1. Explain in plain language what each term means.
+2. Teach the 4 explanations to consider whenever two things move together: A causes B, B causes A, a third factor causes both, or coincidence.
+3. Give 4 everyday examples (including one health claim and one workplace claim) and walk through the alternative explanations for each.
+4. Teach one practical question: "what would I expect to see if this were really causal?"
+5. List common mistakes (e.g., assuming correlation means nothing at all).
+6. Exercise: give me 3 claims, and I propose at least two alternative explanations for each. Correct me.
+7. End by giving me a new claim and asking me to name the most plausible alternative explanation. Wait for my answer.
+Be direct and concise.</pre></div>
+      <p class="copy-status" aria-live="polite"></p>
+    </section>
+
+    <section class="prompt-card" id="session-11" aria-labelledby="title-11">
+      <h2 id="title-11">11. Logical fallacies I: attack and distraction · ~20 min</h2>
+      <p class="builds">Builds on: #3</p>
+      <div class="codewrap"><button class="copy-btn" type="button" aria-label="Copy prompt 11">Copy prompt</button><pre>You are an expert in informal logic, teaching a beginner who can identify claims and evidence but doesn't know the names of common bad-argument patterns.
+
+Teach me one idea: **four fallacies that attack or distract: ad hominem, straw man, red herring / whataboutism, and false dilemma**.
+1. For each: a plain definition, one workplace example, one family or social media example, and the tell-tale sign to spot it.
+2. Show how to respond calmly without escalating.
+3. Warn me about the key trap: spotting a fallacy doesn't prove the other person's conclusion is false; it only shows that this particular argument is weak.
+4. List common mistakes (e.g., calling every disagreement a fallacy).
+5. Exercise: 5 short dialogues, and I name the fallacy or say "none". Correct me.
+6. End by asking me to write a straw-man version of a simple claim and then the fair version. Wait for my answer.
+Be direct and concise.</pre></div>
+      <p class="copy-status" aria-live="polite"></p>
+    </section>
+
+    <section class="prompt-card" id="session-12" aria-labelledby="title-12">
+      <h2 id="title-12">12. Logical fallacies II: flawed reasoning · ~20 min</h2>
+      <p class="builds">Builds on: #11</p>
+      <div class="codewrap"><button class="copy-btn" type="button" aria-label="Copy prompt 12">Copy prompt</button><pre>You are an expert in informal logic, teaching a beginner who knows what an argument is and has just learned that "ad hominem" and "straw man" are bad-argument patterns.
+
+Teach me one idea: **five fallacies of weak support: appeal to authority, appeal to popularity, slippery slope, hasty generalization, and appeal to nature**.
+1. For each: a plain definition, one everyday example (advertising, health advice, politics, workplace), and a quick test question to detect it.
+2. Explain when appealing to an expert or to many people is reasonable and when it's a fallacy.
+3. List common mistakes (e.g., rejecting all expert opinion because "authority" can be a fallacy).
+4. Exercise: 5 short statements, and I name the fallacy or say "reasonable". Correct me.
+5. End by giving me one new statement and asking me to identify the weakness and say what evidence would make it stronger. Wait for my answer.
+Be direct and concise.</pre></div>
+      <p class="copy-status" aria-live="polite"></p>
+    </section>
+
+    <section class="prompt-card" id="session-13" aria-labelledby="title-13">
+      <h2 id="title-13">13. Everyday numbers and statistics · ~20 min</h2>
+      <p class="builds">Builds on: #10</p>
+      <div class="codewrap"><button class="copy-btn" type="button" aria-label="Copy prompt 13">Copy prompt</button><pre>You are an expert in statistical literacy, teaching a beginner who is comfortable with basic percentages but gets lost in headlines full of numbers.
+
+Teach me one idea: **how to read numbers in everyday claims without being misled**.
+1. Explain these 5 traps with a simple example each: relative vs. absolute risk ("doubles your risk" of what?), mean vs. median, small sample sizes, base rates, and anecdotes vs. data.
+2. Teach me 3 questions to ask of any statistic: "out of how many?", "compared to what?", and "who was measured?".
+3. Give me a worked example with a health headline and a finance or salary claim.
+4. List common mistakes (e.g., distrusting all statistics).
+5. Exercise: 3 headlines containing numbers, and I identify what's missing or misleading. Correct me.
+6. End by giving me one new numeric claim and asking which of the 3 questions matters most and why. Wait for my answer.
+Be direct and concise, with minimal math.</pre></div>
+      <p class="copy-status" aria-live="polite"></p>
+    </section>
+
+    <section class="prompt-card" id="session-14" aria-labelledby="title-14">
+      <h2 id="title-14">14. Spotting manipulation in ads, headlines, and feeds · ~20 min</h2>
+      <p class="builds">Builds on: #8, #12</p>
+      <div class="codewrap"><button class="copy-btn" type="button" aria-label="Copy prompt 14">Copy prompt</button><pre>You are an expert in media literacy and persuasion, teaching a beginner who knows about common fallacies and questioning techniques but hasn't studied persuasion tactics.
+
+Teach me one idea: **recognising common manipulation techniques in everyday media**.
+1. Cover these 6 with a realistic example each: emotional triggers (fear/outrage), urgency and scarcity, loaded language, framing, clickbait headlines, and fake social proof.
+2. Teach me the core habit: ask "what reaction is this designed to produce in me?" and treat a strong emotional reaction as a cue to slow down.
+3. Show how the same facts can be framed in two opposite ways.
+4. List common mistakes (e.g., assuming that all persuasion is dishonest).
+5. Exercise: 4 short samples (an ad, a headline, a WhatsApp-style forward, a sale banner), and I name the tactics used. Correct me.
+6. End by asking me to rewrite one manipulative headline in neutral language. Wait for my answer.
+Be direct and concise.</pre></div>
+      <p class="copy-status" aria-live="polite"></p>
+    </section>
+
+    <section class="prompt-card" id="session-15" aria-labelledby="title-15">
+      <h2 id="title-15">15. Making decisions under uncertainty · ~20 min</h2>
+      <p class="builds">Builds on: #2, #5</p>
+      <div class="codewrap"><button class="copy-btn" type="button" aria-label="Copy prompt 15">Copy prompt</button><pre>You are an expert in decision-making, teaching a beginner who knows about slow vs. fast thinking and common biases, but uses only gut feeling or simple pros-and-cons lists for decisions.
+
+Teach me one idea: **a simple process for decisions when I can't be sure of the outcome**.
+1. Explain the difference between a good decision and a good outcome, and why judging decisions only by results is a trap.
+2. Teach a 5-step process: define the real decision, list options (including "do nothing"), pick the 2-3 criteria that matter most, estimate rough likelihoods, and classify the choice as reversible or irreversible.
+3. Teach the "pre-mortem": imagine the decision failed and ask why.
+4. Walk me through a worked example (a job offer or a big purchase).
+5. List common mistakes (e.g., endlessly seeking more information, ignoring sunk cost).
+6. Exercise: I give you a real or imagined decision, and you coach me through the 5 steps one at a time.
+7. End by asking me what the pre-mortem revealed. Wait for my answer.
+Be direct and concise.</pre></div>
+      <p class="copy-status" aria-live="polite"></p>
+    </section>
+
+    <section class="prompt-card" id="session-16" aria-labelledby="title-16">
+      <h2 id="title-16">16. Changing your mind and disagreeing well · ~20 min</h2>
+      <p class="builds">Builds on: #6</p>
+      <div class="codewrap"><button class="copy-btn" type="button" aria-label="Copy prompt 16">Copy prompt</button><pre>You are an expert in reasoning and constructive dialogue, teaching a beginner who knows what confirmation bias is but finds it hard to disagree without conflict or to admit being wrong.
+
+Teach me one idea: **intellectual humility, steelmanning, and updating beliefs**.
+1. Explain each in plain language: holding beliefs with calibrated confidence, steelmanning (stating the other side's best case before responding), and updating when evidence changes.
+2. Show a bad disagreement and the same disagreement done well, in a workplace and a family setting.
+3. Teach 3 phrases that make changing my mind easier ("That's a fair point", "What would convince you?", "I was wrong about that").
+4. List common mistakes (e.g., confusing humility with agreeing with everyone).
+5. Exercise: I name a mild opinion, and you ask me to steelman the opposite view in 3-4 sentences, then critique it.
+6. End by asking me how confident I am in my original opinion now (0-100%) and why. Wait for my answer.
+Be direct and concise.</pre></div>
+      <p class="copy-status" aria-live="polite"></p>
+    </section>
+
+    <section class="prompt-card" id="session-17" aria-labelledby="title-17">
+      <h2 id="title-17">17. Synthesis: analyse a viral claim end to end · ~20 min</h2>
+      <p class="builds">Builds on: #3, #7, #8, #9, #10, #11, #12, #13, #14</p>
+      <div class="codewrap"><button class="copy-btn" type="button" aria-label="Copy prompt 17">Copy prompt</button><pre>You are an expert in critical thinking, coaching a beginner who has studied these 8 tools at a basic level: claim/evidence/reasoning, hidden assumptions, probing questions, source evaluation, correlation vs. causation, common fallacies, reading numbers, and spotting manipulation.
+
+Run a live practice session:
+1. Write a realistic viral post (about 100 words, like a health tip or money-making forward) that deliberately contains at least 5 different flaws from the list above. Don't tell me what the flaws are.
+2. Ask me to analyse it using the 8 tools, and let me answer in my own words.
+3. After my answer, grade me: what I caught, what I missed, and where I was wrong. Reveal the full list of planted flaws.
+4. Give me a second, shorter post and ask me to find the flaws again. Grade me again.
+5. End with a final judgment: which of the 8 tools am I strongest and weakest in? Wait for my answer on how I'll practice the weakest one.
+Be direct and concise.</pre></div>
+      <p class="copy-status" aria-live="polite"></p>
+    </section>
+
+    <section class="prompt-card" id="session-18" aria-labelledby="title-18">
+      <h2 id="title-18">18. Synthesis: a daily critical-thinking routine · ~20 min</h2>
+      <p class="builds">Builds on: #1-#17</p>
+      <div class="codewrap"><button class="copy-btn" type="button" aria-label="Copy prompt 18">Copy prompt</button><pre>You are an expert in critical thinking and habit design, coaching a beginner who has studied these tools at a basic level: fast vs. slow thinking, cognitive biases, confirmation bias, claim/evidence/reasoning, hidden assumptions, probing questions, source evaluation, correlation vs. causation, fallacies, reading numbers, spotting manipulation, decision-making under uncertainty, and steelmanning.
+
+My goal is to apply critical thinking in day-to-day life. Run this session:
+1. Ask me to describe one real recent situation where I accepted a claim or made a decision quickly. Wait for my answer.
+2. Coach me through re-analysing it using the most relevant tools, one question at a time.
+3. Help me build a personal "pause checklist" of at most 5 questions I can run in under 60 seconds on any claim or decision.
+4. Help me design a 2-week habit plan: when and where I'll use the checklist, and one small daily practice (e.g., one headline or one decision per day).
+5. List the 3 most likely ways I'll fail to stick to it, and give a fix for each.
+6. End by asking me to recite my 5-question checklist from memory. Wait for my answer and correct it.
+Be direct and concise.</pre></div>
+      <p class="copy-status" aria-live="polite"></p>
+    </section>
+
+    <aside class="why-order"><strong>Why this order:</strong> #1-6 build the mental model (what it is, how minds mislead themselves). #7-10 give the core analysis tools. #11-14 cover the traps that show up in real media. #15-16 move to decisions and disagreements. #17-18 combine everything and turn it into a routine.</aside>
+  </main>
+  <script>
+    async function copyPrompt(button) {
+      const prompt = button.closest('.codewrap').querySelector('pre').textContent;
+      const status = button.closest('.prompt-card').querySelector('.copy-status');
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(prompt);
+        } else {
+          const temporaryField = document.createElement('textarea');
+          temporaryField.value = prompt;
+          temporaryField.setAttribute('readonly', '');
+          temporaryField.style.position = 'fixed';
+          temporaryField.style.opacity = '0';
+          document.body.appendChild(temporaryField);
+          temporaryField.select();
+          const copied = document.execCommand('copy');
+          temporaryField.remove();
+          if (!copied) throw new Error('Copy command failed');
+        }
+        button.textContent = 'Copied!';
+        status.textContent = 'Prompt copied to clipboard.';
+      } catch (error) {
+        status.textContent = 'Copy was blocked by the browser. Select the prompt text and copy it manually.';
+      }
+      window.setTimeout(() => { button.textContent = 'Copy prompt'; }, 1600);
+    }
+
+    document.querySelectorAll('.copy-btn').forEach((button) => {
+      button.addEventListener('click', () => copyPrompt(button));
+    });
+  </script>
+</body>
+</html>
